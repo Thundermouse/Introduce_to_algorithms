@@ -1,7 +1,7 @@
 /*
 @author:Yuhai Cao<cyh-shanghai@sjtu.edu.cn>
 @version 1.0   
-@date: 29/2016
+@date: 29/09/2016
 @Introduction to Algorithms(Thrid Edition) Chapter 6
 @attention:
 	1.index start with 1
@@ -13,7 +13,6 @@
 
 namespace introAlgorithm
 {
-
 	template <typename T>
 	class heap
 	{

@@ -18,9 +18,15 @@
     <ClInclude Include="src\chapter6\heap.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="red_black_tree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="tree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\heap.cpp">
+    <ClCompile Include="red_black_tree.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
