@@ -18,18 +18,21 @@
     <ClInclude Include="src\chapter6\heap.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="red_black_tree.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="tree.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="src\chapter3\sort.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\chapter6\red_black_tree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\chapter6\tree.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\sort.cpp">
+    <ClCompile Include="src\red_black_tree.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\chapter6\tree.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
