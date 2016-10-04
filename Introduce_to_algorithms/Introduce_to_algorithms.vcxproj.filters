@@ -24,9 +24,12 @@
     <ClInclude Include="tree.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="src\chapter3\sort.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="red_black_tree.cpp">
+    <ClCompile Include="src\sort.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
