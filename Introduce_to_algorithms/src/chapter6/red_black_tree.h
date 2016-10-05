@@ -39,6 +39,88 @@ namespace introAlgorithm
 			nil.lchild = NULL;
 		}
 
+		bool LEFT_ROTATE(RBTnode<T> *x)
+		{
+			if (x == &nil)
+				return 0;
+			RBTnode<T> *y;
+			y = x->rchild;
+			if (y == &nil)
+				return 0;
+			x->rchild = y->lchild;
+			if (y->lchild != &nil)
+				y->rchild->parents = x;
+			y->parents = x->parents;
+			if (x->parents == &nil)
+			{
+				nil.lchild = nil.rchild = y;
+				root=y;
+			}
+			else if (x->parents->lchild == x)
+				x->parents->lchild = y;
+			else x->parents->rchild = y;
+			y->lchild = x;
+			x->parents = y;
+
+			return 1;
+		}
+
+		bool RIGHT_ROTATE(RBTnode<T> *y)
+		{
+			if (y == &nil)return 0;
+			RBTnode<T> *x = y->lchild;
+			if (x == &nil) return 0;
+			y->lchild = x->right;
+			if (x->right != &nil)
+				x->right->parents = y;
+			x->parents = y->parents;
+			if (y->parents == &nil)
+			{
+				nil.rchild = nil.lchild = x;
+				root = x;
+			}
+			else if (y->parents->lchild == y)
+				y->parents->lchild = x;
+			else y->parents->rchild = x;
+			y->parents = x;
+			x->rchild = y;
+			return 1;
+		}
+
+		bool RB_INSERT_FIXUP(RBTnode<T>*p)
+		{
+
+			return 1;
+		}
+
+		bool RB_INSERT(T x)
+		{
+			RBTnode<T>*c = root;
+			RBTnode<T>*p = &nil;
+			while (c != &nil)
+			{
+				p = c;
+				if (x > c->data)
+					c = c->rchild;
+				else c = c->lchild;
+			}
+			RBTnode<T>*New = new RBTnode<T>;
+			New->data = x;
+			New->parents = p;
+			if (p == &nil)
+			{
+				root = New;
+				nil.rchild = nil.lchild = New;
+			}
+			else if (x < p->data)
+				p->lchild = New;
+			else p->rchild = New;
+			cnode++;
+			New->color = RED;
+			New->lchild = New->rchild = &nil;
+			RB_INSERT_FIXUP(New)
+			return 1;
+		}
 
 		void DELETE_NODE_WALK(RBTnode<T>*root)
 		{
@@ -50,6 +132,7 @@ namespace introAlgorithm
 				cnode--;
 			}
 		}
+
 		void INORDER_TREE_WALK(RBTnode<T> *root)
 		{
 			if (root != &nil)
@@ -59,6 +142,7 @@ namespace introAlgorithm
 				INORDER_TREE_WALK(root->rchild);
 			}
 		}
+
 		virtual ~Tree()
 		{
 			DELETE_NODE_WALK(root);

@@ -1,3 +1,10 @@
+/*
+@author:Yuhai Cao<cyh-shanghai@sjtu.edu.cn>
+@version 1.0
+@date: 05/10/2016
+@Introduction to Algorithms(Thrid Edition) Chapter 2 Fundamentals of Alogrithmics
+@attention
+*/
 #ifndef _SORT_H_
 #define _SORT_H_
 namespace introAlgorithm
@@ -41,6 +48,18 @@ namespace introAlgorithm
 			MERGE(S, p, mid, q);
 		}
 		return 1;
+	}
+
+	template<typename T>
+	bool INSERT_SORT(T *S, int p, int q)
+	{
+
+	}
+
+	template<typename T>  //for Problem 2-1
+	bool MERGE_INSERT_SORT(T *S, int p, int q,int k)
+	{
+
 	}
 }
 #endif 
