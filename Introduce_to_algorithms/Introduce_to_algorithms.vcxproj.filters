@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Reference">
+      <UniqueIdentifier>{0fd06ae8-7e68-40bc-8e87-ecb852b54c27}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\chapter6\heap.h">
@@ -29,10 +32,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\red_black_tree.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="src\reference\RedBlackTree.cpp">
+      <Filter>Reference</Filter>
     </ClCompile>
-    <ClCompile Include="src\chapter6\tree.cpp">
+    <ClCompile Include="src\red_black_tree.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

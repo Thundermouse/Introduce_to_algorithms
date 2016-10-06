@@ -17,8 +17,8 @@
     <ClInclude Include="src\chapter6\tree.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\chapter6\tree.cpp" />
     <ClCompile Include="src\red_black_tree.cpp" />
+    <ClCompile Include="src\reference\RedBlackTree.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{3FB50F15-A84B-4A4C-A68E-40ED8887AFFE}</ProjectGuid>

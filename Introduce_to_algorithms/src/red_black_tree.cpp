@@ -1,5 +1,4 @@
 #include"chapter6\red_black_tree.h"
-#include<map>
 using namespace introAlgorithm;
 int main()
 {
