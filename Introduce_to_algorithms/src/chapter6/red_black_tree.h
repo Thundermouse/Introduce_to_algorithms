@@ -14,13 +14,19 @@
 namespace introAlgorithm
 {
 	template<typename T>
-	class RBTnode :public Tnode<T>
+	class RBTnode
 	{
 	public:
 		bool color;
+		RBTnode * lchild;
+		RBTnode * rchild;
+		RBTnode * parents;
+		T data;
 		RBTnode()
 		{
 			color = 0;
+			data = 0;
+			lchild = rchild = parents = NULL;
 		}
 		~RBTnode()
 		{}
@@ -37,7 +43,10 @@ namespace introAlgorithm
 		{
 			nil.rchild = NULL;
 			nil.lchild = NULL;
+			nil.color = BLACK;
 		}
+
+		
 
 		bool LEFT_ROTATE(RBTnode<T> *x)
 		{
@@ -70,9 +79,9 @@ namespace introAlgorithm
 			if (y == &nil)return 0;
 			RBTnode<T> *x = y->lchild;
 			if (x == &nil) return 0;
-			y->lchild = x->right;
-			if (x->right != &nil)
-				x->right->parents = y;
+			y->lchild = x->rchild;
+			if (x->rchild != &nil)
+				x->rchild->parents = y;
 			x->parents = y->parents;
 			if (y->parents == &nil)
 			{
@@ -89,7 +98,60 @@ namespace introAlgorithm
 
 		bool RB_INSERT_FIXUP(RBTnode<T>*p)
 		{
-
+			while (p->parents->color == RED)
+			{
+				if (p->parents = p->parents->parents->lchild)
+				{
+					RBTnode<T>*uncle = p->parents->parents->rchild;
+					if (uncle->color == RED)  //case1
+					{
+						p->parents->color = BLACK;
+						uncle->color = BLACK;
+						p->parents->parents->color = RED;
+						p = p->parents->parents;
+					}
+					else if(p==p->parents->rchild)  //case2,case2运行后必然会导致case3所以一并写上
+					{
+						p = p->parents;
+						LEFT_ROTATE(p);
+						p->parents->color = BLACK;
+						p->parents->parents->color = RED;
+						RIGHT_ROTATE(p->parents->parents);
+					}
+					else
+					{
+						p->parents->color = BLACK;
+						p->parents->parents->color = RED;
+						RIGHT_ROTATE(p->parents->parents);
+					}
+				}
+				else
+				{
+					RBTnode<T>*uncle = p->parents->parents->lchild;
+					if (uncle->color == RED)
+					{
+						p->parents->color = BLACK;
+						uncle->color = BLACK;
+						p->parents->parents = RED;
+						p = p->parents->parents;
+					}
+					else if (p->parents->lchild == p)
+					{
+						p = p->parents;
+						RIGHT_ROTATE(p);
+						p->parents->color = BLACK;
+						p->parents->parents->color = RED;
+						LEFT_ROTATE(p->parents->parents);
+					}
+					else
+					{
+						p->parents->color = BLACK;
+						p->parents->parents->color = RED;
+						LEFT_ROTATE(p->parents->parents);
+					}
+				}
+			}
+			root->color = BLACK;
 			return 1;
 		}
 
@@ -118,7 +180,7 @@ namespace introAlgorithm
 			cnode++;
 			New->color = RED;
 			New->lchild = New->rchild = &nil;
-			RB_INSERT_FIXUP(New)
+			RB_INSERT_FIXUP(New);
 			return 1;
 		}
 
@@ -143,7 +205,7 @@ namespace introAlgorithm
 			}
 		}
 
-		virtual ~Tree()
+		virtual ~RBTree()
 		{
 			DELETE_NODE_WALK(root);
 		}
